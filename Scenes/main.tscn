@@ -4440,6 +4440,10 @@ point_count = 13
 
 [node name="Main" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(984, 807)
+zoom = Vector2(0.4, 0.4)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8gbba")
 format = 2
@@ -4457,7 +4461,3 @@ position = Vector2(129, 188)
 rotation = 0.0016816128
 loop = false
 script = ExtResource("2_bo1nx")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1233, 807)
-zoom = Vector2(0.4, 0.4)

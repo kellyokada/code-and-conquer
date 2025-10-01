@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtiv2pnbvpbpq"]
+
+[ext_resource type="Texture2D" uid="uid://cq7dt7qyb3xs6" path="res://Assets/Wizard.png" id="1_byqed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilitf"]
+radius = 19.104973
+
+[node name="Wizard" type="CharacterBody2D"]
+
+[node name="Wizard" type="Sprite2D" parent="."]
+texture = ExtResource("1_byqed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ilitf")
