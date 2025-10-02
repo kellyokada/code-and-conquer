@@ -1,14 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtiv2pnbvpbpq"]
+[gd_scene load_steps=5 format=3 uid="uid://dtiv2pnbvpbpq"]
 
 [ext_resource type="Texture2D" uid="uid://cq7dt7qyb3xs6" path="res://Assets/Wizard.png" id="1_byqed"]
+[ext_resource type="Script" uid="uid://0n6c2k8jw80x" path="res://Scenes/wizard.gd" id="1_ilitf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_byqed"]
+radius = 19.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilitf"]
-radius = 19.104973
+radius = 128.03516
 
-[node name="Wizard" type="CharacterBody2D"]
+[node name="WizardTower" type="StaticBody2D"]
+script = ExtResource("1_ilitf")
 
 [node name="Wizard" type="Sprite2D" parent="."]
 texture = ExtResource("1_byqed")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_byqed")
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(21, 0)
+
+[node name="Tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
 shape = SubResource("CircleShape2D_ilitf")
+
+[node name="Node" type="Node" parent="."]

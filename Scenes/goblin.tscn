@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d23mceglm7qgf"]
+[gd_scene load_steps=4 format=3 uid="uid://d23mceglm7qgf"]
 
+[ext_resource type="Script" uid="uid://djbnu0f1x7d1y" path="res://Scenes/goblin.gd" id="1_xcvi8"]
 [ext_resource type="Texture2D" uid="uid://d0m0tgktpuwt1" path="res://Assets/Goblin.png" id="1_xm08b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xcvi8"]
 radius = 16.0
 
 [node name="Goblin" type="CharacterBody2D"]
+script = ExtResource("1_xcvi8")
 
 [node name="Goblin" type="Sprite2D" parent="."]
 texture = ExtResource("1_xm08b")
