@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://20bt8ydyr7k6"]
+
+[ext_resource type="Script" uid="uid://buxmptsu1fycm" path="res://Scenes/wizard_tower_panel.gd" id="1_0xqva"]
+[ext_resource type="Texture2D" uid="uid://cq7dt7qyb3xs6" path="res://Assets/Wizard.png" id="2_21i24"]
+
+[node name="WizardTowerPanel" type="Panel"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_0xqva")
+
+[node name="Wizard" type="Sprite2D" parent="."]
+position = Vector2(40, 40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_21i24")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

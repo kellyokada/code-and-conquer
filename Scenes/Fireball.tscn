@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://6xm25y61v63a"]
+
+[ext_resource type="Script" uid="uid://b5kd7pnbop1y1" path="res://fire_ball.gd" id="1_dju2h"]
+[ext_resource type="Texture2D" uid="uid://by2fi2juskf5j" path="res://Assets/Fireball.png" id="2_ffurd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4j73p"]
+radius = 11.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3s34"]
+radius = 14.0
+height = 44.0
+
+[node name="fireBall" type="CharacterBody2D"]
+script = ExtResource("1_dju2h")
+
+[node name="Fireball" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_ffurd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4j73p")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 1.5707964
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_p3s34")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

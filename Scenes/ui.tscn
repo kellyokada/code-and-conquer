@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckt3kripe24w0"]
+
+[ext_resource type="PackedScene" uid="uid://20bt8ydyr7k6" path="res://Scenes/WizardTowerPanel.tscn" id="1_jxero"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 256.0
+offset_bottom = 1664.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 174.0
+offset_bottom = 203.0
+
+[node name="Panel" parent="Panel/FlowContainer" instance=ExtResource("1_jxero")]
+layout_mode = 2
