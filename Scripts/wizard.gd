@@ -7,7 +7,7 @@ var pathName
 var currTargets = []
 var curr
 
-func _process(delta):
+func _process(_delta):
 	if is_instance_valid(curr):
 		self.look_at(curr.global_position)
 
@@ -38,5 +38,5 @@ func _on_tower_body_entered(body: Node2D) -> void:
 		tempBullet.global_position = $Aim.global_position
 
 
-func _on_tower_body_exited(body: Node2D) -> void:
+func _on_tower_body_exited(_body: Node2D) -> void:
 	currTargets = get_node("Tower").get_overlapping_bodies()

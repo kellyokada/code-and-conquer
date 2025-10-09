@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hycw5aiqmkj3"]
+
+[ext_resource type="Texture2D" uid="uid://bnnpdir1bkprd" path="res://Assets/i love dr pepper hell yeah.jpg" id="1_xqk12"]
+
+[node name="TestComponent" type="Node2D"]
+
+[node name="ILoveDrPepperHellYeah" type="Sprite2D" parent="."]
+position = Vector2(0.50001144, 0)
+scale = Vector2(0.532, 0.20352784)
+texture = ExtResource("1_xqk12")

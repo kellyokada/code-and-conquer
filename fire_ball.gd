@@ -5,7 +5,7 @@ var speed = 1000
 var pathName = ""
 var bulletDamage
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var pathSpawnerNode = get_tree().get_root().get_node("Main/PathSpawner")
 	for i in pathSpawnerNode.get_child_count():
 		if pathSpawnerNode.get_child(i).name == pathName:

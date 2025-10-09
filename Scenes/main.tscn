@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cnjlqcwlg616t"]
+[gd_scene load_steps=9 format=4 uid="uid://cnjlqcwlg616t"]
 
 [ext_resource type="Texture2D" uid="uid://dvfvo8pc54p10" path="res://Assets/towerDefense_tilesheet.png" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dgutph8nmd2l5" path="res://Scripts/path_spawner.gd" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ckt3kripe24w0" path="res://Scenes/ui.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cc2s8tunkrlm5" path="res://Scenes/pause_menu.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://22h7nnohnwvw" path="res://Assets/pause-button.png" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://csx8uh2fcc4ve" path="res://Scenes/workspace.tscn" id="6_21xkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
@@ -4459,6 +4460,9 @@ autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
 position = Vector2(1000, 1000)
+
+[node name="Workspace" parent="." instance=ExtResource("6_21xkr")]
+scale = Vector2(1.6000003, 1.6000003)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 

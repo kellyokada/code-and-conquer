@@ -1,5 +1,8 @@
 extends Node
 
+var isDragging = false;
+var isValidPlacement = false;
+
 signal health_changed(current: int, max: int)
 signal player_died
 

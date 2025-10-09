@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://nxwyj2x8v3s5"]
+
+[ext_resource type="PackedScene" uid="uid://dhyrubo3vsle7" path="res://Scenes/menu_component.tscn" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://w41mpqhbvd0v" path="res://Scenes/tower_selectable.tscn" id="2_6uqi0"]
+
+[node name="Node2D" type="Node"]
+
+[node name="menuComponent" parent="." instance=ExtResource("1_8uh7m")]
+position = Vector2(367, 235)
+
+[node name="menuComponent2" parent="menuComponent" instance=ExtResource("1_8uh7m")]
+position = Vector2(1, 160)
+
+[node name="tower_selectable" parent="." instance=ExtResource("2_6uqi0")]
+position = Vector2(850, 252)
+
+[node name="tower_selectable" parent="tower_selectable" instance=ExtResource("2_6uqi0")]
+position = Vector2(-1, 137)

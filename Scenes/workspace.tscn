@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://csx8uh2fcc4ve"]
+
+[ext_resource type="Script" uid="uid://ds5vqhy8wmqsq" path="res://Scripts/workspace.gd" id="1_jvwm3"]
+[ext_resource type="PackedScene" uid="uid://dhyrubo3vsle7" path="res://Scenes/menu_component.tscn" id="2_3ky0i"]
+[ext_resource type="PackedScene" uid="uid://hycw5aiqmkj3" path="res://Scenes/testComponent.tscn" id="3_5m7mu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvwm3"]
+size = Vector2(1500, 769)
+
+[node name="Workspace" type="Node2D"]
+script = ExtResource("1_jvwm3")
+
+[node name="menuComponent" parent="." instance=ExtResource("2_3ky0i")]
+position = Vector2(207, 94)
+componentToPlace = ExtResource("3_5m7mu")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 855.0
+offset_top = 768.0
+offset_right = 998.0
+offset_bottom = 799.0
+text = "toggle workspace"
+
+[node name="ValidSpace" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ValidSpace"]
+position = Vector2(1169, 384.5)
+shape = SubResource("RectangleShape2D_jvwm3")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="ValidSpace" to="." method="_on_valid_space_mouse_entered"]
+[connection signal="mouse_exited" from="ValidSpace" to="." method="_on_valid_space_mouse_exited"]
