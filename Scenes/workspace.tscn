@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://csx8uh2fcc4ve"]
+[gd_scene load_steps=6 format=3 uid="uid://csx8uh2fcc4ve"]
 
 [ext_resource type="Script" uid="uid://ds5vqhy8wmqsq" path="res://Scripts/workspace.gd" id="1_jvwm3"]
 [ext_resource type="PackedScene" uid="uid://dhyrubo3vsle7" path="res://Scenes/menu_component.tscn" id="2_3ky0i"]
+[ext_resource type="Texture2D" uid="uid://ck6xs1715qjko" path="res://Assets/temp.png" id="2_j6iwe"]
 [ext_resource type="PackedScene" uid="uid://hycw5aiqmkj3" path="res://Scenes/testComponent.tscn" id="3_5m7mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvwm3"]
@@ -9,6 +10,11 @@ size = Vector2(1500, 769)
 
 [node name="Workspace" type="Node2D"]
 script = ExtResource("1_jvwm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960.5, 385.5)
+scale = Vector2(9.615, 3.825)
+texture = ExtResource("2_j6iwe")
 
 [node name="menuComponent" parent="." instance=ExtResource("2_3ky0i")]
 position = Vector2(207, 94)

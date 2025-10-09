@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://hycw5aiqmkj3"]
-
-[ext_resource type="Texture2D" uid="uid://bnnpdir1bkprd" path="res://Assets/i love dr pepper hell yeah.jpg" id="1_xqk12"]
+[gd_scene format=3 uid="uid://hycw5aiqmkj3"]
 
 [node name="TestComponent" type="Node2D"]
 
-[node name="ILoveDrPepperHellYeah" type="Sprite2D" parent="."]
-position = Vector2(0.50001144, 0)
-scale = Vector2(0.532, 0.20352784)
-texture = ExtResource("1_xqk12")
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
