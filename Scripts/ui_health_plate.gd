@@ -1,4 +1,3 @@
-# file: ui_health_plate.gd
 extends TextureRect
 
 @onready var value_label: Label = $ValueLabel
