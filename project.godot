@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Code and Conquer"
-run/main_scene="uid://cnjlqcwlg616t"
+run/main_scene="uid://w6qe58ug18dq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

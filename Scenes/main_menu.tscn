@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://w6qe58ug18dq"]
+
+[ext_resource type="Texture2D" uid="uid://cqaugag1ow5cr" path="res://Assets/image.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://bf0sokyd0lplk" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48xlc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.9372549, 0.91764706, 0.8235294, 1)
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(960, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_28flt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 600.0
+offset_right = 960.0
+offset_bottom = 701.0
+scale = Vector2(2, 2)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
