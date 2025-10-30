@@ -4451,7 +4451,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAEAAUAAGACAAAAAAAEAAUAAGABAAAAAAAEAAU
 tile_set = SubResource("TileSet_8gbba")
 
 [node name="UI" parent="." instance=ExtResource("3_8gbba")]
-visible = false
 
 [node name="Towers" type="Node2D" parent="."]
 visible = false
