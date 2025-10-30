@@ -12,12 +12,12 @@ func _process(_delta):
 		self.look_at(curr.global_position)
 
 func _on_tower_body_entered(body: Node2D) -> void:
-	if "Goblin" in body.name:
+	if "Enemy" in body.name:
 		var tempArray = []
 		currTargets = get_node("Tower").get_overlapping_bodies()
 		
 		for i in currTargets:
-			if "Goblin" in i.name:
+			if "Enemy" in i.name:
 				tempArray.append(i)
 		var currTarget = null
 		
@@ -34,6 +34,7 @@ func _on_tower_body_entered(body: Node2D) -> void:
 		var tempBullet = Bullet.instantiate()
 		tempBullet.pathName = pathName
 		tempBullet.bulletDamage = bulletDamage
+		tempBullet.target = currTarget
 		get_node("BulletContainer").add_child(tempBullet)
 		tempBullet.global_position = $Aim.global_position
 

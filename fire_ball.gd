@@ -1,25 +1,24 @@
 extends CharacterBody2D
 
-var target
 var speed = 1000
 var pathName = ""
 var bulletDamage
 
+var target
+
 func _physics_process(_delta: float) -> void:
-	var pathSpawnerNode = get_tree().get_root().get_node("Main/PathSpawner")
-	for i in pathSpawnerNode.get_child_count():
-		if pathSpawnerNode.get_child(i).name == pathName:
-			target = pathSpawnerNode.get_child(i).get_child(0).get_child(0).global_position
-			
-	velocity = global_position.direction_to(target) * speed
 	
-	look_at(target)
+			
+	velocity = global_position.direction_to(target.global_position) * speed
+	
+	look_at(target.global_position)
 	
 	move_and_slide()
 	
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Goblin" in body.name:
-		body.health -= bulletDamage
+	if "Enemy" in body.name:
+		var parent = body.get_parent()
+		parent.health -= bulletDamage
 		queue_free()

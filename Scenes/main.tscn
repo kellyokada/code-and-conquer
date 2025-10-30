@@ -4453,11 +4453,9 @@ tile_set = SubResource("TileSet_8gbba")
 [node name="UI" parent="." instance=ExtResource("3_8gbba")]
 
 [node name="Towers" type="Node2D" parent="."]
-visible = false
 position = Vector2(1000, 1000)
 
 [node name="Workspace" parent="." instance=ExtResource("6_21xkr")]
-visible = false
 scale = Vector2(1.6000003, 1.6000003)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
