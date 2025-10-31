@@ -3,6 +3,7 @@ extends Control
 @onready var pause_button = $"../PauseButton"
 @onready var leave_confirm = $LeaveConfirm
 @onready var main_panel = $PanelContainer
+@onready var paused_label = $Label
 
 func _ready():
 	$AnimationPlayer.play("RESET")
@@ -41,12 +42,15 @@ func _on_pause_button_pressed() -> void:
 
 func _on_leave_pressed() -> void:
 	main_panel.hide()
+	paused_label.hide()
 	leave_confirm.show()
 
 func _on_yes_pressed() -> void:
 	get_tree().paused = false
+	GameState.reset()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_no_pressed() -> void:
 	leave_confirm.hide()
 	main_panel.show()
+	paused_label.show()
