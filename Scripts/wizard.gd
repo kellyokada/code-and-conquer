@@ -65,7 +65,6 @@ func tower_overlap():
 		return false
 		
 func deactivate_area():
-	tower_detection.monitorable = false
 	tower_detection.monitoring = false
 	tower_placement_area.monitorable = false
 	tower_placement_area.monitoring = false
