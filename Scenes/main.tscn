@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cnjlqcwlg616t"]
+[gd_scene load_steps=24 format=4 uid="uid://cnjlqcwlg616t"]
 
 [ext_resource type="Texture2D" uid="uid://dvfvo8pc54p10" path="res://Assets/towerDefense_tilesheet.png" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ckt3kripe24w0" path="res://Scenes/ui.tscn" id="3_8gbba"]
@@ -4436,6 +4436,53 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_bo1nx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
+size = Vector2(622.30774, 1663.8462)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bp64"]
+size = Vector2(1787.6921, 411.9231)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
+size = Vector2(1653.654, 216.92307)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynf5e"]
+size = Vector2(305.769, 1654.6155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hptm8"]
+size = Vector2(2129.231, 111.53847)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1ilt"]
+radius = 53.84619
+height = 289.23083
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iyac"]
+size = Vector2(189.71152, 985.6731)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdnlq"]
+size = Vector2(1662.3077, 241.15408)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
+radius = 46.154053
+height = 1055.3848
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ilt"]
+size = Vector2(1461.5388, 64.23074)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkdf5"]
+size = Vector2(1478.077, 66.923096)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsu2k"]
+size = Vector2(221.73097, 117.884834)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k12tt"]
+radius = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1bgf"]
+radius = 86.82427
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3802"]
+radius = 60.07883
+
 [node name="Main" type="Node2D"]
 scale = Vector2(0.65, 0.65)
 
@@ -4479,5 +4526,115 @@ flat = true
 
 [node name="StageTest" parent="." instance=ExtResource("6_6bp64")]
 scale = Vector2(1.55, 1.55)
+
+[node name="PlayerInputArea" type="Area2D" parent="."]
+position = Vector2(418.46155, 140.00002)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(-100, 686.15393)
+shape = SubResource("RectangleShape2D_21xkr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1100.0004, 343.2693)
+shape = SubResource("RectangleShape2D_6bp64")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1441.5386, 946.1539)
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(2430.7693, 692.30774)
+shape = SubResource("RectangleShape2D_ynf5e")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1267.6929, -81.92311)
+shape = SubResource("RectangleShape2D_hptm8")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(2006.1539, 338.46155)
+shape = SubResource("CapsuleShape2D_d1ilt")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(307.69232, 1038.4617)
+shape = SubResource("RectangleShape2D_6iyac")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1227.6924, 1406.1539)
+shape = SubResource("RectangleShape2D_fdnlq")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(2270.7693, 1046.1539)
+shape = SubResource("CapsuleShape2D_21xkr")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1135.3849, 581.73096)
+shape = SubResource("RectangleShape2D_d1ilt")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1484.6155, 812.30774)
+shape = SubResource("RectangleShape2D_jkdf5")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(1492.3079, 1090.7693)
+shape = SubResource("RectangleShape2D_jkdf5")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(2158.4617, 1464.6154)
+shape = SubResource("RectangleShape2D_wsu2k")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(2167.6924, -30.769247)
+shape = SubResource("CircleShape2D_k12tt")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D14"]
+position = Vector2(58.461628, 55.38462)
+shape = SubResource("CircleShape2D_k12tt")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D14/CollisionShape2D14"]
+position = Vector2(64.61548, 69.230774)
+shape = SubResource("CircleShape2D_k12tt")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D14"]
+position = Vector2(-1780.0002, 1195.3846)
+shape = SubResource("CircleShape2D_k12tt")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D14/CollisionShape2D15"]
+position = Vector2(58.461628, 55.38462)
+shape = SubResource("CircleShape2D_k12tt")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D14/CollisionShape2D15/CollisionShape2D14"]
+position = Vector2(132.3078, 69.230774)
+shape = SubResource("CircleShape2D_k12tt")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(383.07697, 730.7692)
+shape = SubResource("CircleShape2D_h1bgf")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D15"]
+position = Vector2(69.230774, -67.69238)
+shape = SubResource("CircleShape2D_h1bgf")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D15/CollisionShape2D15"]
+position = Vector2(133.84616, -70.76912)
+shape = SubResource("CircleShape2D_h1bgf")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D15"]
+position = Vector2(1649.2308, 60.00004)
+shape = SubResource("CircleShape2D_h1bgf")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D15/CollisionShape2D16"]
+position = Vector2(132.30779, -66.15381)
+shape = SubResource("CircleShape2D_h1bgf")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="PlayerInputArea/CollisionShape2D15/CollisionShape2D16/CollisionShape2D15"]
+position = Vector2(67.692345, -66.15388)
+shape = SubResource("CircleShape2D_h1bgf")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="PlayerInputArea"]
+position = Vector2(2212.3079, 1130.7693)
+shape = SubResource("CircleShape2D_b3802")
 
 [connection signal="pressed" from="PauseMenu/PauseButton" to="PauseMenu/PauseMenu" method="_on_pause_button_pressed"]

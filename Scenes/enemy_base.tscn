@@ -9,6 +9,8 @@ radius = 24.083189
 script = ExtResource("1_r040p")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("CircleShape2D_cs1oe")

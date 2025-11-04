@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtiv2pnbvpbpq"]
+[gd_scene load_steps=8 format=3 uid="uid://dtiv2pnbvpbpq"]
 
 [ext_resource type="Texture2D" uid="uid://cq7dt7qyb3xs6" path="res://Assets/Wizard.png" id="1_byqed"]
 [ext_resource type="Script" uid="uid://0n6c2k8jw80x" path="res://Scripts/wizard.gd" id="1_ilitf"]
@@ -16,6 +16,12 @@ corner_radius_top_right = 128
 corner_radius_bottom_right = 128
 corner_radius_bottom_left = 128
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_33wk7"]
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqqw1"]
+radius = 19.0
+
 [node name="WizardTower" type="StaticBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_ilitf")
@@ -30,6 +36,9 @@ shape = SubResource("CircleShape2D_byqed")
 position = Vector2(21, 0)
 
 [node name="Tower" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tower"]
 shape = SubResource("CircleShape2D_ilitf")
@@ -43,6 +52,18 @@ offset_top = -128.0
 offset_right = 128.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ilitf")
+
+[node name="TowerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetection"]
+shape = SubResource("CircleShape2D_33wk7")
+
+[node name="TowerPlacementArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacementArea"]
+shape = SubResource("CircleShape2D_mqqw1")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]
