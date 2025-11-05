@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="enemyBase" load_steps=3 format=3 uid="uid://culan8017m1ry"]
+
+[ext_resource type="Texture2D" uid="uid://bnnpdir1bkprd" path="res://Assets/i love dr pepper hell yeah.jpg" id="1_hyma7"]
+[ext_resource type="Script" uid="uid://qay2645cce68" path="res://resources/resource scripts/Enemy.gd" id="1_j3e53"]
+
+[resource]
+script = ExtResource("1_j3e53")
+id = 1
+health = 5.0
+speed = 0.05
+enemySprite = ExtResource("1_hyma7")
+metadata/_custom_type_script = "uid://qay2645cce68"

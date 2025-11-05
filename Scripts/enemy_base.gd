@@ -7,7 +7,7 @@ var speed:float
 var killReward:int
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-var enemyStats:enemyBase = preload("res://resources/enemies/test.tres")
+var enemyStats:enemyBase = preload("res://resources/enemies/Test.tres")
 func _ready(): 
 	id = enemyStats.id
 	health = enemyStats.health
