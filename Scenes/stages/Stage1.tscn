@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckf68xhraeukf"]
+
+[ext_resource type="Script" uid="uid://b3uvl57lwvpx4" path="res://wave_manager.gd" id="1_u7tui"]
+
+[sub_resource type="Curve2D" id="Curve2D_jjgbg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 129, 188, 0, 0, 0, 0, 1913, 191, 0, 0, 0, 0, 2095, 357, 0, 0, 0, 0, 2087, 611, 0, 0, 0, 0, 1812, 813, 0, 0, 0, 0, 1747, 834, 0, 0, 0, 0, 609, 842, 0, 0, 0, 0, 427, 974, 0, 0, 0, 0, 422, 1168, 0, 0, 0, 0, 640, 1334, 0, 0, 0, 0, 1973, 1342, 0, 0, 0, 0, 2053, 1392, 0, 0, 0, 0, 2048, 1532)
+}
+point_count = 13
+
+[node name="Stage1" type="Node2D"]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(340, 0)
+scale = Vector2(0.65, 0.65)
+curve = SubResource("Curve2D_jjgbg")
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("1_u7tui")
+
+[node name="Timer" type="Timer" parent="WaveManager"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="WaveManager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.625
+offset_top = -74.0
+offset_right = 33.625
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 35
+
+[connection signal="timeout" from="WaveManager/Timer" to="WaveManager" method="_on_timer_timeout"]

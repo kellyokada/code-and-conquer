@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckt3kripe24w0"]
+[gd_scene load_steps=6 format=3 uid="uid://ckt3kripe24w0"]
 
 [ext_resource type="PackedScene" uid="uid://20bt8ydyr7k6" path="res://Scenes/WizardTowerPanel.tscn" id="1_jxero"]
 [ext_resource type="Texture2D" uid="uid://ckk8ffw73qbr3" path="res://Assets/Health.png" id="2_qdvrb"]
 [ext_resource type="Script" uid="uid://2nbgs47plu6s" path="res://Scripts/ui_health_plate.gd" id="3_nf4gj"]
+[ext_resource type="Script" uid="uid://c560tx8hvxpse" path="res://Scenes/currency_plate.gd" id="4_2246s"]
+[ext_resource type="Texture2D" uid="uid://bhx7tm4xwt5os" path="res://Assets/Currency.png" id="4_q7pk6"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -35,6 +37,26 @@ offset_left = 32.0
 offset_top = 26.0
 offset_right = 72.0
 offset_bottom = 65.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrencyPlate" type="TextureRect" parent="."]
+offset_left = 250.0
+offset_top = 106.0
+offset_right = 370.0
+offset_bottom = 203.0
+texture = ExtResource("4_q7pk6")
+expand_mode = 1
+script = ExtResource("4_2246s")
+
+[node name="CurrencyLabel" type="Label" parent="CurrencyPlate"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 30.0
+offset_right = 83.0
+offset_bottom = 69.0
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
