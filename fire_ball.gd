@@ -8,13 +8,14 @@ var target
 
 func _physics_process(_delta: float) -> void:
 	
-			
-	velocity = global_position.direction_to(target.global_position) * speed
-	
-	look_at(target.global_position)
-	
-	move_and_slide()
-	
+	if target: 
+		velocity = global_position.direction_to(target.global_position) * speed
+		
+		look_at(target.global_position)
+		
+		move_and_slide()
+	else:
+		return
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
