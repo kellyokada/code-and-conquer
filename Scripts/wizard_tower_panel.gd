@@ -29,7 +29,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 func _process(_delta: float) -> void:
 	if can_place and actual_tower:
-		actual_tower.global_position = get_global_mouse_position().snapped(Vector2(32,32))	
+		actual_tower.global_position = get_global_mouse_position()	
 	
 		if actual_tower.tower_overlap():
 			sinalize_tower_on()
