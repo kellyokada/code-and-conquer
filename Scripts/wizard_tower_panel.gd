@@ -5,6 +5,8 @@ var currTile
 var actual_tower
 var can_place
 var can_add_tower
+@onready var tower_placement: AudioStreamPlayer = $"../../../TowerPlacement"
+
 
 func _on_gui_input(event: InputEvent) -> void:
 	
@@ -19,6 +21,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		actual_tower.scale = Vector2(1.3,1.3)
 	elif event is InputEventMouseButton and event.button_mask == 0 and actual_tower:
 		if can_add_tower:
+			tower_placement.play()
 			actual_tower.activate_tower()
 			actual_tower.global_position = event.global_position
 			actual_tower.get_node("Area").hide()

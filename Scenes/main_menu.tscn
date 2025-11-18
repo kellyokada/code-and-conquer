@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://w6qe58ug18dq"]
+[gd_scene load_steps=4 format=3 uid="uid://w6qe58ug18dq"]
 
 [ext_resource type="Texture2D" uid="uid://cqaugag1ow5cr" path="res://Assets/image.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://bf0sokyd0lplk" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+[ext_resource type="PackedScene" uid="uid://bpukuxrlas8xm" path="res://Scenes/Audios/SettingsBGS.tscn" id="3_1ehe0"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -43,6 +44,9 @@ text = "Options"
 layout_mode = 2
 text = "Quit"
 
+[node name="SettingsBgs" parent="." instance=ExtResource("3_1ehe0")]
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="SettingsBgs" to="." method="_on_settings_bgs_finished"]

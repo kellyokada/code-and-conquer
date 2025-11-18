@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpukuxrlas8xm"]
+
+[ext_resource type="AudioStream" uid="uid://ccbjgwri25ph" path="res://Sounds/BGM/SettingBGM.mp3" id="1_0fc4k"]
+
+[node name="SettingsBgs" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_0fc4k")
+volume_db = 0.1

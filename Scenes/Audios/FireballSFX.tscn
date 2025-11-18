@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3tesiw72rrl3"]
+
+[ext_resource type="AudioStream" uid="uid://cwkukay72rw7e" path="res://Sounds/SFX/FireballSFX.wav" id="1_mfmfv"]
+
+[node name="FireballSfx" type="AudioStreamPlayer"]
+stream = ExtResource("1_mfmfv")
+volume_db = 24.0
+autoplay = true

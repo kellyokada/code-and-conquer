@@ -6,6 +6,11 @@ var bulletDamage
 
 var target
 
+@onready var fireball_sfx: AudioStreamPlayer = $FireballSfx
+
+func _ready() -> void:
+	fireball_sfx.play()
+
 func _physics_process(_delta: float) -> void:
 	
 	if target: 

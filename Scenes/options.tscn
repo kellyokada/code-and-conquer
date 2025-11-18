@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnsrovxiwj245"]
+[gd_scene load_steps=3 format=3 uid="uid://cnsrovxiwj245"]
 
 [ext_resource type="Script" uid="uid://ddythb16jegw7" path="res://Scenes/options.gd" id="1_prnvy"]
+[ext_resource type="PackedScene" uid="uid://bpukuxrlas8xm" path="res://Scenes/Audios/SettingsBGS.tscn" id="2_4tmxy"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -53,5 +54,7 @@ text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="SettingsBgs" parent="." instance=ExtResource("2_4tmxy")]
 
 [connection signal="pressed" from="ColorRect/Back" to="." method="_on_back_pressed"]

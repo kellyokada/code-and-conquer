@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqpt4xdqg83in"]
+
+[ext_resource type="AudioStream" uid="uid://cx1pfqkuh2esf" path="res://Sounds/SFX/TowerPlacement.wav" id="1_uua3s"]
+
+[node name="TowerPlacement" type="AudioStreamPlayer"]
+stream = ExtResource("1_uua3s")
+volume_db = 4.0

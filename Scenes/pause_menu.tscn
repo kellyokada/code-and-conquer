@@ -1,11 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc2s8tunkrlm5"]
+[gd_scene load_steps=8 format=3 uid="uid://cc2s8tunkrlm5"]
 
-[ext_resource type="Shader" uid="uid://djnnud76ids84" path="res://Scenes/pause_menu.gdshader" id="1_emv3i"]
+[ext_resource type="Shader" path="res://Scenes/pause_menu.gdshader" id="1_emv3i"]
 [ext_resource type="Script" uid="uid://c0wpacp8vpvoh" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="PackedScene" uid="uid://bpukuxrlas8xm" path="res://Scenes/Audios/SettingsBGS.tscn" id="3_1och7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emv3i"]
 shader = ExtResource("1_emv3i")
 shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_k0w1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu/ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_emv3i"]
 resource_name = "blur"
@@ -18,21 +34,6 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_k0w1u"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PauseMenu/ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
@@ -93,6 +94,8 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_1och7")
 }
+
+[node name="SettingsBgs" parent="." instance=ExtResource("3_1och7")]
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

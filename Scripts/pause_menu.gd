@@ -1,11 +1,13 @@
 extends Control
 @onready var pause_button = $"../PauseButton"
+@onready var settings_bgs: AudioStreamPlayer = $SettingsBgs
+
 
 func _ready():
 	$AnimationPlayer.play("RESET")
 	hide()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
+	
 func resume():
 	get_tree().paused = false
 	hide()
@@ -17,6 +19,8 @@ func pause():
 	show()
 	$AnimationPlayer.play("blur")
 	pause_button.hide()
+	settings_bgs.play()
+
 
 func _on_resume_pressed() -> void:
 	resume()
