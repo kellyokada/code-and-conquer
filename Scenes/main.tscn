@@ -4506,21 +4506,16 @@ tile_set = SubResource("TileSet_8gbba")
 [node name="UI" parent="." instance=ExtResource("3_8gbba")]
 
 [node name="Towers" type="Node2D" parent="."]
-visible = false
 position = Vector2(1000, 1000)
 
 [node name="Workspace" parent="." instance=ExtResource("6_21xkr")]
-visible = false
 scale = Vector2(1.6000003, 1.6000003)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("4_jjvhh")]
-visible = false
 
 [node name="PauseButton" type="Button" parent="PauseMenu"]
-visible = false
 custom_minimum_size = Vector2(-500, -500)
 anchors_preset = 1
 anchor_left = 1.0
@@ -4536,7 +4531,6 @@ icon = ExtResource("5_kry3j")
 flat = true
 
 [node name="StageTest" parent="." instance=ExtResource("6_6bp64")]
-visible = false
 scale = Vector2(1.55, 1.55)
 
 [node name="PlayerInputArea" type="Area2D" parent="."]
