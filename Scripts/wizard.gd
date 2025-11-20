@@ -56,6 +56,7 @@ func activate_tower():
 func tower_overlap():
 	var tower_areas = tower_detection.get_overlapping_areas()
 	var player_areas = tower_placement_area.get_overlapping_areas()
+	
 	if player_areas.size() >0 :
 		if tower_areas.size() > 0 :
 			return false

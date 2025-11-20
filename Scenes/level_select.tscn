@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckw0uqbafakhp"]
+[gd_scene load_steps=7 format=3 uid="uid://ckw0uqbafakhp"]
 
 [ext_resource type="Script" uid="uid://dnguipj55v36p" path="res://Scenes/level_select.gd" id="1_1fiak"]
 [ext_resource type="Texture2D" uid="uid://bu68j8yv6sqoe" path="res://Assets/Level Previews/Level1.png" id="2_nkys2"]
 [ext_resource type="PackedScene" uid="uid://bpukuxrlas8xm" path="res://Scenes/Audios/SettingsBGS.tscn" id="3_lx4vd"]
 [ext_resource type="Script" uid="uid://cqrghmt7qem8w" path="res://Scenes/conclusion_label.gd" id="4_72w8f"]
+[ext_resource type="FontFile" uid="uid://b4iorubhnpuyu" path="res://Assets/BoldPixels.ttf" id="4_s6o25"]
 [ext_resource type="PackedScene" uid="uid://de8sxy4w0ybdk" path="res://Scenes/SaverLoader.tscn" id="5_s6o25"]
 
 [node name="Level Select" type="Control"]
@@ -48,11 +49,14 @@ text = "Level 1"
 
 [node name="ConclusionLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 232.0
-offset_right = 476.0
-offset_bottom = 255.0
-theme_override_colors/font_color = Color(0.4173195, 0.00012085632, 0.4176619, 1)
+offset_left = 341.0
+offset_top = 212.0
+offset_right = 573.0
+offset_bottom = 276.0
+theme_override_colors/font_color = Color(0.5254316, 0.3328926, 0.5219114, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7882353)
+theme_override_fonts/font = ExtResource("4_s6o25")
+theme_override_font_sizes/font_size = 64
 text = "Finished"
 script = ExtResource("4_72w8f")
 

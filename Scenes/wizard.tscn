@@ -27,15 +27,18 @@ scale = Vector2(2, 2)
 script = ExtResource("1_ilitf")
 
 [node name="Wizard" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_byqed")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.8, 1.8)
 shape = SubResource("CircleShape2D_byqed")
 
 [node name="Aim" type="Marker2D" parent="."]
 position = Vector2(21, 0)
 
 [node name="Tower" type="Area2D" parent="."]
+scale = Vector2(1.8, 1.8)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -47,18 +50,21 @@ shape = SubResource("CircleShape2D_ilitf")
 
 [node name="Area" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0.39215687)
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = -229.0
+offset_top = -230.0
+offset_right = 27.0
+offset_bottom = 26.0
+scale = Vector2(1.8, 1.8)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ilitf")
 
 [node name="TowerDetection" type="Area2D" parent="."]
+scale = Vector2(1.8, 1.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetection"]
 shape = SubResource("CircleShape2D_33wk7")
 
 [node name="TowerPlacementArea" type="Area2D" parent="."]
+scale = Vector2(1.8, 1.8)
 collision_layer = 0
 collision_mask = 2
 
