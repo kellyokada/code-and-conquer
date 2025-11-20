@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cnjlqcwlg616t"]
+[gd_scene load_steps=27 format=4 uid="uid://cnjlqcwlg616t"]
 
 [ext_resource type="Script" uid="uid://cashaswi8y7lm" path="res://Scenes/main_level.gd" id="1_344ge"]
 [ext_resource type="Texture2D" uid="uid://dvfvo8pc54p10" path="res://Assets/towerDefense_tilesheet.png" id="1_jjgbg"]
@@ -4485,6 +4485,9 @@ radius = 86.82427
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3802"]
 radius = 60.07883
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k12tt"]
+size = Vector2(1820.3846, 160.38461)
+
 [node name="Main" type="Node2D"]
 scale = Vector2(0.65, 0.65)
 script = ExtResource("1_344ge")
@@ -4503,16 +4506,21 @@ tile_set = SubResource("TileSet_8gbba")
 [node name="UI" parent="." instance=ExtResource("3_8gbba")]
 
 [node name="Towers" type="Node2D" parent="."]
+visible = false
 position = Vector2(1000, 1000)
 
 [node name="Workspace" parent="." instance=ExtResource("6_21xkr")]
+visible = false
 scale = Vector2(1.6000003, 1.6000003)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="PauseMenu" instance=ExtResource("4_jjvhh")]
+visible = false
 
 [node name="PauseButton" type="Button" parent="PauseMenu"]
+visible = false
 custom_minimum_size = Vector2(-500, -500)
 anchors_preset = 1
 anchor_left = 1.0
@@ -4528,6 +4536,7 @@ icon = ExtResource("5_kry3j")
 flat = true
 
 [node name="StageTest" parent="." instance=ExtResource("6_6bp64")]
+visible = false
 scale = Vector2(1.55, 1.55)
 
 [node name="PlayerInputArea" type="Area2D" parent="."]
@@ -4642,5 +4651,14 @@ shape = SubResource("CircleShape2D_b3802")
 
 [node name="Battle(chosic_com)" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_344ge")
+
+[node name="NoTowerPlacementArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTowerPlacementArea"]
+position = Vector2(1542.1157, 190.57693)
+shape = SubResource("RectangleShape2D_k12tt")
+debug_color = Color(0.85800177, 0.2366913, 0.6950604, 0.41960785)
 
 [connection signal="pressed" from="PauseMenu/PauseButton" to="PauseMenu/PauseMenu" method="_on_pause_button_pressed"]
