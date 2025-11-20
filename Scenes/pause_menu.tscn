@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc2s8tunkrlm5"]
+[gd_scene load_steps=9 format=3 uid="uid://cc2s8tunkrlm5"]
 
 [ext_resource type="Shader" path="res://Scenes/pause_menu.gdshader" id="1_emv3i"]
 [ext_resource type="Script" uid="uid://c0wpacp8vpvoh" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
 [ext_resource type="PackedScene" uid="uid://bpukuxrlas8xm" path="res://Scenes/Audios/SettingsBGS.tscn" id="3_1och7"]
+[ext_resource type="FontFile" uid="uid://b4iorubhnpuyu" path="res://Assets/BoldPixels.ttf" id="3_bpi0q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emv3i"]
 shader = ExtResource("1_emv3i")
@@ -75,19 +76,25 @@ layout_mode = 2
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(10, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bpi0q")
+theme_override_font_sizes/font_size = 40
 toggle_mode = true
-text = "Resume"
+text = "RESUME"
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(10, 50)
 layout_mode = 2
-text = "Restart"
+theme_override_fonts/font = ExtResource("3_bpi0q")
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(10, 50)
 layout_mode = 2
-text = "Quit"
+theme_override_fonts/font = ExtResource("3_bpi0q")
+theme_override_font_sizes/font_size = 40
+text = "QUIT"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
