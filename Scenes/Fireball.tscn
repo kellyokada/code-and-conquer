@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://6xm25y61v63a"]
 
 [ext_resource type="Script" uid="uid://b5kd7pnbop1y1" path="res://fire_ball.gd" id="1_dju2h"]
-[ext_resource type="Texture2D" uid="uid://by2fi2juskf5j" path="res://Assets/Fireball.png" id="2_ffurd"]
+[ext_resource type="Texture2D" uid="uid://dpcv3le0qot3a" path="res://Assets/fireball.png" id="2_ffurd"]
 [ext_resource type="PackedScene" uid="uid://b3tesiw72rrl3" path="res://Scenes/Audios/FireballSFX.tscn" id="3_ffurd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4j73p"]
@@ -18,7 +18,8 @@ collision_mask = 4
 script = ExtResource("1_dju2h")
 
 [node name="Fireball" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
+position = Vector2(-2, -1)
+scale = Vector2(0.08, 0.073)
 texture = ExtResource("2_ffurd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

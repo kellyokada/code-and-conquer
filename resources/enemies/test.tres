@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="enemyBase" load_steps=3 format=3 uid="uid://co21wy45qb6o"]
 
-[ext_resource type="Texture2D" uid="uid://d0m0tgktpuwt1" path="res://Assets/Enemy Sprites/Goblin.png" id="1_3ippv"]
+[ext_resource type="Texture2D" uid="uid://bg4j4fg4x25tt" path="res://resources/enemies/goblin3.png" id="1_3ippv"]
 [ext_resource type="Script" uid="uid://qay2645cce68" path="res://resources/resource scripts/Enemy.gd" id="1_ljxyy"]
 
 [resource]

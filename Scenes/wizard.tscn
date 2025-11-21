@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtiv2pnbvpbpq"]
 
-[ext_resource type="Texture2D" uid="uid://cq7dt7qyb3xs6" path="res://Assets/Wizard.png" id="1_byqed"]
 [ext_resource type="Script" uid="uid://0n6c2k8jw80x" path="res://Scripts/wizard.gd" id="1_ilitf"]
+[ext_resource type="Texture2D" uid="uid://8rhqhgnmlp1x" path="res://Assets/tower (7).png" id="2_ilitf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byqed"]
 radius = 19.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilitf"]
-radius = 128.03516
+radius = 102.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilitf"]
 bg_color = Color(0.91592616, 0.18770772, 3.85046e-07, 1)
@@ -23,12 +23,13 @@ radius = 19.0
 radius = 19.0
 
 [node name="WizardTower" type="StaticBody2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_ilitf")
 
 [node name="Wizard" type="Sprite2D" parent="."]
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("1_byqed")
+position = Vector2(0, 4.7683716e-07)
+rotation = 1.5707964
+scale = Vector2(0.11471652, 0.115745194)
+texture = ExtResource("2_ilitf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.8, 1.8)
@@ -38,7 +39,7 @@ shape = SubResource("CircleShape2D_byqed")
 position = Vector2(21, 0)
 
 [node name="Tower" type="Area2D" parent="."]
-scale = Vector2(1.8, 1.8)
+scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -50,11 +51,11 @@ shape = SubResource("CircleShape2D_ilitf")
 
 [node name="Area" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0.39215687)
-offset_left = -229.0
-offset_top = -230.0
-offset_right = 27.0
-offset_bottom = 26.0
-scale = Vector2(1.8, 1.8)
+offset_left = -213.0
+offset_top = -207.0
+offset_right = -1.5
+offset_bottom = 0.5
+scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ilitf")
 
 [node name="TowerDetection" type="Area2D" parent="."]
@@ -64,11 +65,12 @@ scale = Vector2(1.8, 1.8)
 shape = SubResource("CircleShape2D_33wk7")
 
 [node name="TowerPlacementArea" type="Area2D" parent="."]
-scale = Vector2(1.8, 1.8)
+scale = Vector2(2.5, 2.5)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacementArea"]
+position = Vector2(-1.9073486e-06, -9.536743e-07)
 shape = SubResource("CircleShape2D_mqqw1")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
