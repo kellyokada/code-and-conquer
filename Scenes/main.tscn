@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cnjlqcwlg616t"]
+[gd_scene load_steps=27 format=4 uid="uid://cnjlqcwlg616t"]
 
 [ext_resource type="Texture2D" uid="uid://dvfvo8pc54p10" path="res://Assets/towerDefense_tilesheet.png" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ckt3kripe24w0" path="res://Scenes/ui.tscn" id="3_8gbba"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckf68xhraeukf" path="res://Scenes/stages/Stage1.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dkroyxrbq45ph" path="res://Scenes/tower_draggable.tscn" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://ci338rnqxwu77" path="res://test.gd" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://f5hhmpen82rf" path="res://Scenes/game_over_menu.tscn" id="8_ynf5e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
@@ -4655,5 +4656,11 @@ offset_bottom = 1658.4617
 text = "test"
 label_settings = SubResource("LabelSettings_6bp64")
 script = ExtResource("7_6bp64")
+
+[node name="GameOverMenu" parent="." instance=ExtResource("8_ynf5e")]
+offset_left = 1212.3077
+offset_top = 493.8462
+offset_right = 1461.3077
+offset_bottom = 550.8462
 
 [connection signal="pressed" from="PauseMenu/PauseButton" to="PauseMenu/PauseMenu" method="_on_pause_button_pressed"]
