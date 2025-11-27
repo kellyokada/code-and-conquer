@@ -4658,9 +4658,9 @@ label_settings = SubResource("LabelSettings_6bp64")
 script = ExtResource("7_6bp64")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("8_ynf5e")]
-offset_left = 1212.3077
-offset_top = 493.8462
-offset_right = 1461.3077
-offset_bottom = 550.8462
+offset_left = 1249.2308
+offset_top = 756.92316
+offset_right = 1504.3848
+offset_bottom = 830.8462
 
 [connection signal="pressed" from="PauseMenu/PauseButton" to="PauseMenu/PauseMenu" method="_on_pause_button_pressed"]

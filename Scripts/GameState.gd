@@ -9,7 +9,7 @@ signal player_died
 signal currency_changed(current:int)
 
 @export var starting_currency:int = 25
-@export var max_health := 1
+@export var max_health := 25
 
 var health := max_health : set = _set_health
 var currency:int
