@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbwwcui2gx8dv"]
+
+[ext_resource type="Script" uid="uid://b5kd7pnbop1y1" path="res://fire_ball.gd" id="1_o46rr"]
+[ext_resource type="Texture2D" uid="uid://csrgy6yb8mvo" path="res://Assets/ballista arrow.png" id="2_63e0a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4j73p"]
+radius = 5.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3s34"]
+radius = 9.0
+height = 56.0
+
+[node name="BallistaArrow" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_o46rr")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_63e0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4j73p")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 1.5707964
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_p3s34")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

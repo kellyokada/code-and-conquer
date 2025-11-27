@@ -1,16 +1,24 @@
 extends Node
 var isDragging = false;
 var isValidPlacement = false;
+var nodeBeingDragged:PackedScene
+var nodeTypeBeingDragged:bool #True is tower component false is code component
 
 signal health_changed(current: int, max: int)
 signal player_died
 signal currency_changed(current:int)
 
 @export var starting_currency:int = 25
-@export var max_health := 20
+@export var max_health := 25
 
 var health := max_health : set = _set_health
 var currency:int
+
+var draggingTowerComp = false
+var draggingCodeComp = false
+
+func toggleDragging():
+	isDragging = !isDragging
 
 func _ready() -> void:
 	currency = starting_currency

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2fv4cg2kx7i5"]
+
+[ext_resource type="PackedScene" uid="uid://dggygkueg5271" path="res://Scenes/code components/CodeComponents/fire_ballista.tscn" id="1_aiap3"]
+[ext_resource type="Script" uid="uid://bvujk5xgko7bv" path="res://Scripts/Tower stuff/towerList.gd" id="1_ldl4c"]
+[ext_resource type="PackedScene" uid="uid://can0j57gojq83" path="res://Scenes/code components/CodeComponents/load_arrow.tscn" id="2_2gq54"]
+[ext_resource type="PackedScene" uid="uid://dtcssaexddeoj" path="res://Scenes/code components/CodeComponents/find_target.tscn" id="3_ddyai"]
+
+[node name="Ballista" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.999875
+anchor_bottom = 0.99959266
+offset_right = 0.23999023
+offset_bottom = 0.4399414
+script = ExtResource("1_ldl4c")
+metadata/_edit_use_anchors_ = true
+
+[node name="FireBallista" parent="." instance=ExtResource("1_aiap3")]
+layout_mode = 2
+
+[node name="LoadArrow" parent="." instance=ExtResource("2_2gq54")]
+layout_mode = 2
+
+[node name="Find target" parent="." instance=ExtResource("3_ddyai")]
+layout_mode = 2

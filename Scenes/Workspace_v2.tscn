@@ -1,0 +1,257 @@
+[gd_scene load_steps=14 format=3 uid="uid://bolk5fk66ojl"]
+
+[ext_resource type="PackedScene" uid="uid://r872rcng7xtd" path="res://Scenes/code components/shop_component.tscn" id="1_hau5l"]
+[ext_resource type="Script" uid="uid://dgi815tqi455p" path="res://Scripts/workspace_v_2.gd" id="1_w8g6c"]
+[ext_resource type="Script" uid="uid://c6og0dtn5bbct" path="res://Scripts/componentManager.gd" id="2_55xjc"]
+[ext_resource type="PackedScene" uid="uid://d2fv4cg2kx7i5" path="res://Scenes/code components/ShopLists/ballista_list.tscn" id="2_o08bu"]
+[ext_resource type="StyleBox" uid="uid://cdv0etvurol6w" path="res://Assets/Styles/Default.tres" id="3_yjswq"]
+
+[sub_resource type="Theme" id="Theme_jpdei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpdei"]
+bg_color = Color(0.4236506, 0.42365065, 0.42365053, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hau5l"]
+bg_color = Color(0.65891117, 1.9131974e-06, 5.2943824e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjswq"]
+bg_color = Color(0.50534403, 0.5053441, 0.50534385, 1)
+border_width_bottom = 5
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8g6c"]
+size = Vector2(384, 1092)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55xjc"]
+bg_color = Color(0, 0.65882355, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o08bu"]
+bg_color = Color(0, 0, 0.65882355, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8g6c"]
+bg_color = Color(0.77907914, 0.551768, 0.13616487, 1)
+
+[node name="Workspace" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8g6c")
+
+[node name="Component container" type="PanelContainer" parent="."]
+z_index = 3
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme = SubResource("Theme_jpdei")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jpdei")
+
+[node name="CompShopTabs" type="TabContainer" parent="Component container"]
+unique_name_in_owner = true
+layout_mode = 2
+current_tab = 0
+
+[node name="Base" type="VBoxContainer" parent="Component container/CompShopTabs"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VSplitContainer" type="PanelContainer" parent="Component container"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="FinishButton" type="Button" parent="Component container/VSplitContainer"]
+layout_mode = 2
+text = "Done?"
+
+[node name="Tower components" type="PanelContainer" parent="."]
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tower components"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Tower1" type="ScrollContainer" parent="Tower components/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hau5l")
+metadata/_edit_use_anchors_ = true
+
+[node name="T1List" type="VBoxContainer" parent="Tower components/HBoxContainer/Tower1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="T1Header" type="PanelContainer" parent="Tower components/HBoxContainer/Tower1/T1List"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yjswq")
+
+[node name="T1Label" type="Label" parent="Tower components/HBoxContainer/Tower1/T1List/T1Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "None"
+horizontal_alignment = 1
+
+[node name="T1Button" type="Button" parent="Tower components/HBoxContainer/Tower1/T1List/T1Header"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Delete"
+
+[node name="T1A2D" type="Area2D" parent="Tower components/HBoxContainer/Tower1" node_paths=PackedStringArray("myList", "myListHeader", "myListTitle", "myHeaderButton", "myScrollContainer")]
+script = ExtResource("2_55xjc")
+myList = NodePath("../T1List")
+myListHeader = NodePath("../T1List/T1Header")
+myListTitle = NodePath("../T1List/T1Header/T1Label")
+myHeaderButton = NodePath("../T1List/T1Header/T1Button")
+myScrollContainer = NodePath("..")
+listValue = 1
+defaultHeaderStyle = ExtResource("3_yjswq")
+testingName = "t1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower components/HBoxContainer/Tower1/T1A2D"]
+position = Vector2(182, 536)
+shape = SubResource("RectangleShape2D_w8g6c")
+
+[node name="Tower2" type="ScrollContainer" parent="Tower components/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_55xjc")
+metadata/_edit_use_anchors_ = true
+
+[node name="T2List" type="VBoxContainer" parent="Tower components/HBoxContainer/Tower2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="T2Header" type="PanelContainer" parent="Tower components/HBoxContainer/Tower2/T2List"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yjswq")
+
+[node name="T2Label" type="Label" parent="Tower components/HBoxContainer/Tower2/T2List/T2Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "None"
+horizontal_alignment = 1
+
+[node name="T2Button" type="Button" parent="Tower components/HBoxContainer/Tower2/T2List/T2Header"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Delete"
+
+[node name="T2A2D" type="Area2D" parent="Tower components/HBoxContainer/Tower2" node_paths=PackedStringArray("myList", "myListHeader", "myListTitle", "myHeaderButton", "myScrollContainer")]
+script = ExtResource("2_55xjc")
+myList = NodePath("../T2List")
+myListHeader = NodePath("../T2List/T2Header")
+myListTitle = NodePath("../T2List/T2Header/T2Label")
+myHeaderButton = NodePath("../T2List/T2Header/T2Button")
+myScrollContainer = NodePath("..")
+listValue = 2
+defaultHeaderStyle = ExtResource("3_yjswq")
+testingName = "t2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower components/HBoxContainer/Tower2/T2A2D"]
+position = Vector2(182, 536)
+shape = SubResource("RectangleShape2D_w8g6c")
+
+[node name="Tower3" type="ScrollContainer" parent="Tower components/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o08bu")
+metadata/_edit_use_anchors_ = true
+
+[node name="T3List" type="VBoxContainer" parent="Tower components/HBoxContainer/Tower3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="T3Header" type="PanelContainer" parent="Tower components/HBoxContainer/Tower3/T3List"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yjswq")
+
+[node name="T3Label" type="Label" parent="Tower components/HBoxContainer/Tower3/T3List/T3Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "None"
+horizontal_alignment = 1
+
+[node name="T3Button" type="Button" parent="Tower components/HBoxContainer/Tower3/T3List/T3Header"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Delete"
+
+[node name="T3A2D" type="Area2D" parent="Tower components/HBoxContainer/Tower3" node_paths=PackedStringArray("myList", "myListHeader", "myListTitle", "myHeaderButton", "myScrollContainer")]
+script = ExtResource("2_55xjc")
+myList = NodePath("../T3List")
+myListHeader = NodePath("../T3List/T3Header")
+myListTitle = NodePath("../T3List/T3Header/T3Label")
+myHeaderButton = NodePath("../T3List/T3Header/T3Button")
+myScrollContainer = NodePath("..")
+listValue = 3
+defaultHeaderStyle = ExtResource("3_yjswq")
+testingName = "t3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower components/HBoxContainer/Tower3/T3A2D"]
+position = Vector2(182, 536)
+shape = SubResource("RectangleShape2D_w8g6c")
+
+[node name="Shop container" type="PanelContainer" parent="."]
+z_index = 3
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8g6c")
+
+[node name="TabContainer" type="TabContainer" parent="Shop container"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Base" type="VBoxContainer" parent="Shop container/TabContainer"]
+layout_mode = 2
+mouse_filter = 2
+metadata/_tab_index = 0
+
+[node name="ShopComponent" parent="Shop container/TabContainer/Base" instance=ExtResource("1_hau5l")]
+layout_mode = 2
+codeToLoad = ExtResource("2_o08bu")
+
+[connection signal="pressed" from="Component container/VSplitContainer/FinishButton" to="." method="_on_finish_button_pressed"]
+[connection signal="pressed" from="Tower components/HBoxContainer/Tower1/T1List/T1Header/T1Button" to="Tower components/HBoxContainer/Tower1/T1A2D" method="_pressed"]
+[connection signal="mouse_entered" from="Tower components/HBoxContainer/Tower1/T1A2D" to="Tower components/HBoxContainer/Tower1/T1A2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Tower components/HBoxContainer/Tower1/T1A2D" to="Tower components/HBoxContainer/Tower1/T1A2D" method="_on_mouse_exited"]
+[connection signal="pressed" from="Tower components/HBoxContainer/Tower2/T2List/T2Header/T2Button" to="Tower components/HBoxContainer/Tower1/T1A2D" method="_pressed"]
+[connection signal="mouse_entered" from="Tower components/HBoxContainer/Tower2/T2A2D" to="Tower components/HBoxContainer/Tower2/T2A2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Tower components/HBoxContainer/Tower2/T2A2D" to="Tower components/HBoxContainer/Tower2/T2A2D" method="_on_mouse_exited"]
+[connection signal="pressed" from="Tower components/HBoxContainer/Tower3/T3List/T3Header/T3Button" to="Tower components/HBoxContainer/Tower3/T3A2D" method="_pressed"]
+[connection signal="mouse_entered" from="Tower components/HBoxContainer/Tower3/T3A2D" to="Tower components/HBoxContainer/Tower3/T3A2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Tower components/HBoxContainer/Tower3/T3A2D" to="Tower components/HBoxContainer/Tower3/T3A2D" method="_on_mouse_exited"]

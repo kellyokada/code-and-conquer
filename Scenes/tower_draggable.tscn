@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkroyxrbq45ph"]
+
+[ext_resource type="Script" uid="uid://b2n14dkqyy84" path="res://Scripts/draggableTower.gd" id="1_vfr4f"]
+[ext_resource type="Texture2D" uid="uid://bklemcexlpe57" path="res://Assets/Sprite-0001.png" id="2_jnbyu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfr4f"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5001547, 0.34346542, 0.6720835, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8j3p4"]
+radius = 64.195015
+
+[node name="TowerDraggable" type="PanelContainer"]
+z_index = 1
+custom_minimum_size = Vector2(250, 250)
+anchors_preset = -1
+anchor_right = 0.09610417
+anchor_bottom = 0.16866668
+offset_right = -0.5200043
+offset_bottom = -0.15999985
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vfr4f")
+metadata/_edit_use_anchors_ = true
+
+[node name="Draggable" type="Area2D" parent="."]
+position = Vector2(120, 128)
+script = ExtResource("1_vfr4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Draggable"]
+texture = ExtResource("2_jnbyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable"]
+shape = SubResource("CircleShape2D_8j3p4")
+
+[connection signal="mouse_entered" from="Draggable" to="Draggable" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Draggable" to="Draggable" method="_on_mouse_exited"]

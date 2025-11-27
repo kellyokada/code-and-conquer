@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b3tesiw72rrl3" path="res://Scenes/Audios/FireballSFX.tscn" id="3_ffurd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4j73p"]
-radius = 11.0
-height = 38.0
+radius = 9.0
+height = 56.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3s34"]
-radius = 14.0
-height = 44.0
+radius = 9.0
+height = 56.0
 
 [node name="fireBall" type="CharacterBody2D"]
 collision_layer = 0

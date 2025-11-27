@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtcssaexddeoj"]
+
+[ext_resource type="Script" uid="uid://35c1mck80k6h" path="res://Scripts/shop_component.gd" id="1_qkebn"]
+[ext_resource type="PackedScene" uid="uid://bpwnuw6mnqaqv" path="res://Scenes/code components/codeBlocks/get_target_in_range.tscn" id="2_cqm47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aikgp"]
+bg_color = Color(0.3647059, 0.3647059, 0.3647059, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6509804, 0.6784314, 0.63529414, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erobn"]
+size = Vector2(257.88, 58)
+
+[node name="Find target" type="MarginContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 75)
+anchors_preset = -1
+anchor_left = -0.065000005
+anchor_top = -0.025
+anchor_right = 0.066
+anchor_bottom = 0.023000002
+offset_left = -2.1999893
+offset_top = -10.5
+offset_right = 0.27999878
+offset_bottom = 12.659998
+mouse_filter = 2
+script = ExtResource("1_qkebn")
+codeToLoad = ExtResource("2_cqm47")
+cType = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aikgp")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Name" type="Label" parent="Container/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Finds a target"
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="Container"]
+position = Vector2(0, -10)
+
+[node name="Collider" type="CollisionShape2D" parent="Container/Area2D"]
+unique_name_in_owner = true
+position = Vector2(126.939995, 37)
+shape = SubResource("RectangleShape2D_erobn")
+
+[connection signal="mouse_entered" from="Container/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Container/Area2D" to="." method="_on_area_2d_mouse_exited"]

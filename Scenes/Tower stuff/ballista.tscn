@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbl5d4ssgm6ik"]
+
+[ext_resource type="Script" uid="uid://bd0kdp0xbcykp" path="res://Scripts/Tower stuff/ballista.gd" id="1_ea12f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xr04u"]
+radius = 443.59665
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ea12f"]
+
+[node name="Ballista" type="StaticBody2D"]
+z_index = 1
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ea12f")
+
+[node name="ROFTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="BulletContainer" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xr04u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ea12f")
+
+[connection signal="timeout" from="ROFTimer" to="." method="_on_rof_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

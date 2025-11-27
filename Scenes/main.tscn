@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ckf68xhraeukf" path="res://Scenes/stages/Stage1.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://csx8uh2fcc4ve" path="res://Scenes/workspace.tscn" id="6_21xkr"]
 [ext_resource type="AudioStream" uid="uid://bcn1ihxm8kcdk" path="res://Sounds/BGM/Battle(chosic.com).mp3" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://dkroyxrbq45ph" path="res://Scenes/tower_draggable.tscn" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://ci338rnqxwu77" path="res://test.gd" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://f5hhmpen82rf" path="res://Scenes/game_over_menu.tscn" id="8_ynf5e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
@@ -4485,8 +4488,9 @@ radius = 86.82427
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3802"]
 radius = 60.07883
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k12tt"]
-size = Vector2(1820.3846, 160.38461)
+[sub_resource type="LabelSettings" id="LabelSettings_6bp64"]
+font_size = 98
+font_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 scale = Vector2(0.65, 0.65)
@@ -4504,12 +4508,9 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAEAAUAAGACAAAAAAAEAAUAAGABAAAAAAAEAAU
 tile_set = SubResource("TileSet_8gbba")
 
 [node name="UI" parent="." instance=ExtResource("3_8gbba")]
+visible = false
 
 [node name="Towers" type="Node2D" parent="."]
-position = Vector2(1000, 1000)
-
-[node name="Workspace" parent="." instance=ExtResource("6_21xkr")]
-scale = Vector2(1.6000003, 1.6000003)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
@@ -4643,16 +4644,27 @@ shape = SubResource("CircleShape2D_h1bgf")
 position = Vector2(2212.3079, 1130.7693)
 shape = SubResource("CircleShape2D_b3802")
 
-[node name="Battle(chosic_com)" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_344ge")
+[node name="TowerDraggable" parent="." instance=ExtResource("6_21xkr")]
+offset_left = 26.153849
+offset_top = 35.38462
+offset_right = 26.153849
+offset_bottom = 35.38462
 
-[node name="NoTowerPlacementArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 0
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+offset_left = 3.0769234
+offset_top = 1309.2308
+offset_right = 507.69235
+offset_bottom = 1658.4617
+text = "test"
+label_settings = SubResource("LabelSettings_6bp64")
+script = ExtResource("7_6bp64")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTowerPlacementArea"]
-position = Vector2(1542.1157, 190.57693)
-shape = SubResource("RectangleShape2D_k12tt")
-debug_color = Color(0.85800177, 0.2366913, 0.6950604, 0.41960785)
+[node name="GameOverMenu" parent="." instance=ExtResource("8_ynf5e")]
+offset_left = 1249.2308
+offset_top = 756.92316
+offset_right = 1504.3848
+offset_bottom = 830.8462
 
 [connection signal="pressed" from="PauseMenu/PauseButton" to="PauseMenu/PauseMenu" method="_on_pause_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc2s8tunkrlm5"]
+[gd_scene load_steps=15 format=3 uid="uid://cc2s8tunkrlm5"]
 
 [ext_resource type="Shader" path="res://Scenes/pause_menu.gdshader" id="1_emv3i"]
 [ext_resource type="Script" uid="uid://c0wpacp8vpvoh" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
@@ -8,6 +8,36 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emv3i"]
 shader = ExtResource("1_emv3i")
 shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0w1u"]
+bg_color = Color(0.9372549, 0.91764706, 0.8235294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.601223, 0.601223, 0.60122293, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpi0q"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmyb1"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myy0f"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="Animation" id="Animation_k0w1u"]
 length = 0.001
@@ -46,55 +76,115 @@ _data = {
 &"blur": SubResource("Animation_emv3i")
 }
 
+[sub_resource type="GDScript" id="GDScript_k0w1u"]
+script/source = "extends Control
+
+func _ready() -> void:
+	hide()
+
+func _on_yes_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
+
+func _on_no_pressed() -> void:
+	hide()
+	get_parent().show()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1och7"]
+bg_color = Color(0.9372549, 0.91764706, 0.8235294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjs17"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8tnp"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 640.0
-offset_top = 419.0
-offset_right = 1242.0
-offset_bottom = 577.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_k0w1u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_emv3i")
 layout_mode = 0
-offset_left = -799.0
-offset_top = -592.0
-offset_right = 1351.0
-offset_bottom = 864.0
+offset_left = -883.0
+offset_top = -639.0
+offset_right = 1267.0
+offset_bottom = 817.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 602.0
-offset_bottom = 158.0
+offset_left = 88.0
+offset_top = -46.0
+offset_right = 419.0
+offset_bottom = 156.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k0w1u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 process_mode = 3
-modulate = Color(0.7852611, 0.7852611, 0.60722977, 1)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 7
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(10, 50)
+custom_minimum_size = Vector2(125, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_bpi0q")
-theme_override_font_sizes/font_size = 40
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bpi0q")
 toggle_mode = true
 text = "RESUME"
 
 [node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(10, 50)
+custom_minimum_size = Vector2(125, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_bpi0q")
-theme_override_font_sizes/font_size = 40
-text = "RESTART"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_vmyb1")
+text = "Restart"
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Leave" type="Button" parent="PanelContainer/VBoxContainer"]
 process_mode = 3
-custom_minimum_size = Vector2(10, 50)
+custom_minimum_size = Vector2(125, 50)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_bpi0q")
-theme_override_font_sizes/font_size = 40
-text = "QUIT"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_myy0f")
+text = "Leave"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -102,8 +192,81 @@ libraries = {
 &"": SubResource("AnimationLibrary_1och7")
 }
 
-[node name="SettingsBgs" parent="." instance=ExtResource("3_1och7")]
+[node name="LeaveConfirm" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 354.0
+offset_top = 115.0
+offset_right = 394.0
+offset_bottom = 155.0
+script = SubResource("GDScript_k0w1u")
+
+[node name="PanelContainer" type="PanelContainer" parent="LeaveConfirm"]
+layout_mode = 0
+offset_left = -398.0
+offset_top = -190.0
+offset_right = 198.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1och7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaveConfirm/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeaveConfirm/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.83033526, 0.83033514, 0.83033514, 0)
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 31
+text = "Are you sure you want to leave?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeaveConfirm/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 29
+
+[node name="Yes" type="Button" parent="LeaveConfirm/PanelContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_sjs17")
+text = "Yes"
+
+[node name="No" type="Button" parent="LeaveConfirm/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_u8tnp")
+text = "No"
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(0, -200)
+layout_mode = 0
+offset_left = 182.0
+offset_top = -80.0
+offset_right = 323.0
+offset_bottom = -25.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.3
+theme_override_constants/line_spacing = 3
+theme_override_font_sizes/font_size = 40
+text = "Paused"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="LeaveConfirm/PanelContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="LeaveConfirm/PanelContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
