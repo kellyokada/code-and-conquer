@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 1000
 var pathName = ""
-var bulletDamage
+var bulletDamage = 3.0
 
 var target
 
@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if "Enemy" in body.name:
-		var parent = body.get_parent()
-		parent.health -= bulletDamage
+	if (is_instance_valid(target) && target is PathFollow2D):
+		var temp = body.get_parent()
+		temp._damage(bulletDamage)
 		queue_free()

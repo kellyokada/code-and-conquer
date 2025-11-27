@@ -23,6 +23,10 @@ func _process(_delta: float) -> void:
 		GameState.damage(player_damage) #Damages player when it reaches end
 		queue_free()
 		
-	if health <= 0:
+	
+
+func _damage(damage:float):
+	health = health - damage
+	if health <= 0.0:
 		GameState.add_currency(killReward)
 		queue_free()

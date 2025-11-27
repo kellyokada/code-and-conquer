@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopComponent" load_steps=3 format=3 uid="uid://cwo1ubd78doeo"]
+
+[ext_resource type="Script" uid="uid://6bysh3acxkkv" path="res://resources/resource scripts/ShopComponent.gd" id="1_avsqn"]
+[ext_resource type="StyleBox" uid="uid://dgwqaqpt5gw4g" path="res://Assets/Styles/Ballista.tres" id="2_4b58l"]
+
+[resource]
+script = ExtResource("1_avsqn")
+headerName = "Activates when an enemy comes in range"
+shopStyle = ExtResource("2_4b58l")
+metadata/_custom_type_script = "uid://6bysh3acxkkv"
